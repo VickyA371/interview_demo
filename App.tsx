@@ -9,9 +9,14 @@
 
 import * as React from 'react';
 import MainNavigation from './src/navigation/MainNavigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App() {
-  return <MainNavigation />;
+  return (
+    <SafeAreaProvider>
+      <MainNavigation />
+    </SafeAreaProvider>
+  );
 }
 
 export default App;
