@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import {Image, Pressable, View} from 'react-native';
 import assets from '../assets';
+
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +18,7 @@ function MainNavigation() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          header: ({navigation, options, route, back}) => {
+          header: () => {
             return (
               <View
                 style={{

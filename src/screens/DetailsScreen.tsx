@@ -1,21 +1,11 @@
-import React, {useEffect} from 'react';
-import {View, Text, Image} from 'react-native';
+import React from 'react';
+import {View, Text} from 'react-native';
 import {Plant} from '../types';
+import Animated from 'react-native-reanimated';
 
-function DetailsScreen(props) {
+function DetailsScreen(props: any) {
   const details: Plant = props.route.params?.plantDetails;
-  const {
-    bio,
-    category,
-    fertilizer,
-    id,
-    image,
-    light,
-    name,
-    price,
-    size,
-    water,
-  } = details;
+  const {category, image, name, price, id} = details;
 
   return (
     <View style={{flex: 1}}>
@@ -74,14 +64,15 @@ function DetailsScreen(props) {
           {'PRICE'}
         </Text>
         <Text>{price}</Text>
-        <Image
+        <Animated.Image
+          sharedTransitionTag={`img-${id}`}
           source={{uri: image}}
           style={{
             width: 150,
             height: 200,
             position: 'absolute',
             bottom: 0,
-            right: 0
+            right: 0,
           }}
         />
       </View>
